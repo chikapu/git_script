@@ -1,24 +1,23 @@
+
 Private Sub CommandButton1_Click()
 
 Dim myFile As String
-Dim file1 As String
 Dim rng As Range
 Dim cellValue As Variant
 Dim col, row As Integer
 
-Set rng = Selection
-For col = 1 To rng.Columns.Count
-    file1 = "C:\Users\kimik\Desktop\workspace\excel\" & rng.Cells(1, col) & ".txt"
-    Open file1 For Output As #1
+Dim rgStart, rgEnd As Range
+Set rgStart = Range("D24:W40").Find("###start")
+Set rgEnd = Range("D24:W40").Find("###end")
+
+Set rng = Range(rgStart, rgEnd)
+For col = 2 To (rng.Columns.Count - 1)
+    myFile = "C:\Users\kimik\Desktop\workspace\excel\new_" & rng.Cells(1, col) & ".txt"
+    Open myFile For Output As #1
     For row = 2 To rng.Rows.Count
         cellValue = rng.Cells(row, col).Value
         If cellValue = "" Then
         Else
-            'If col = rng.Columns.Count Then
-            '    Print #1, cellValue
-            'Else
-            '    Print #1, cellValue,
-            'End If
             Print #1, cellValue
         End If
     Next row
