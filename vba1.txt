@@ -12,15 +12,45 @@ Set rgEnd = Range("D24:W40").Find("###end")
 
 Set rng = Range(rgStart, rgEnd)
 For col = 2 To (rng.Columns.Count - 1)
-    myFile = "C:\Users\kimik\Desktop\workspace\excel\new_" & rng.Cells(1, col) & ".txt"
+    'open file
+    myFile = "C:\Users\kimik\Desktop\workspace\excel\new_" & rng.Cells(1, col) & ".v"
     Open myFile For Output As #1
-    For row = 2 To rng.Rows.Count
+    
+    'writer first part of testbench file
+    Print #1, ThisWorkbook.Sheets("Sheet4").Range("D5").Value
+    
+    'gyrn sync config
+    Print #1, "// Start config Gyro Sync"
+    For row = 2 To (rng.Rows.Count - 3)
         cellValue = rng.Cells(row, col).Value
         If cellValue = "" Then
         Else
             Print #1, cellValue
         End If
     Next row
+    Print #1, "// End config Gyro Sync"
+    Print #1, ""
+    
+    'gyrn sensor config
+    Print #1, "// Start config Gyro Sensor"
+    If row = rng.Rows.Count - 2 Then
+        cellValue = rng.Cells(row, col).Value
+        Print #1, cellValue
+    End If
+    Print #1, "// End config Gyro Sensor"
+    Print #1, "end"
+    Print #1, ""
+    
+    'clock config
+    For row = (rng.Rows.Count - 1) To rng.Rows.Count
+        cellValue = rng.Cells(row, col).Value
+        Print #1, cellValue
+    Next row
+    
+    'writer last part of testbench file
+    Print #1, ""
+    Print #1, ThisWorkbook.Sheets("Sheet4").Range("D7").Value
+    
     Close #1
 Next col
 
