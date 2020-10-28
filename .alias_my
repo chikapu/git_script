@@ -1,0 +1,66 @@
+alias load 'source $HOME/.cshrc'
+alias cl    'printf "\033c"'
+alias clear cl
+alias gocis cd /home/user/kiennt/CIS
+alias home  cd /home/user/kiennt
+alias ll    'ls -l --color=auto -X'
+alias lt    'll -rt'
+alias l     'll'
+alias lg    'll \!:1 | grep \!:2'
+alias lm-fv  lmstat -f VC-STATIC-FV
+alias lm-com lmstat -f VC-STATIC-COMPILE
+alias lm-ver lmstat -f VERDI
+
+alias work0 cd /home/user/kiennt/CIS/workspace/20191011_trial
+alias work1 cd /home/user/kiennt/CIS/workspace/20191017
+alias work1_cc cd /home/user/kiennt/CIS/workspace/20191017/verif/vc_formal/vc_cc_top
+alias work1_tr cd /home/user/kiennt/CIS/workspace/20191017/trunk_r16173
+
+alias work3    cd /home/user/kiennt/CIS/workspace/20191112/
+
+alias work2_tr cd /home/user/kiennt/CIS/tsdv_cis/trunk
+alias work2_rg cd /home/user/kiennt/CIS/tsdv_cis/trunk/BENCH/RG
+
+alias goteli   cd /home/user/kiennt/teli_fpga/svn_BC_Series
+alias goteli1  cd /home/user/kiennt/cae_library/simulation
+alias gobus    cd /home/user/kiennt/CIS/u2b-fcc/IntegrationTest/peribus/
+alias gosim    cd /home/user/kiennt/CIS/u2b-fcc/IntegrationTest/peribus/sim
+alias gosimtp  cd /home/user/kiennt/CIS/u2b-fcc/IntegrationTest/peribus/sim/tp
+alias gosimenv cd /home/user/kiennt/CIS/u2b-fcc/IntegrationTest/peribus/sim/env
+alias gosimbuild  cd /home/user/kiennt/CIS/u2b-fcc/IntegrationTest/peribus/sim/build
+alias govcf    cd /home/user/kiennt/CIS/u2b-fcc/IntegrationTest/peribus/vcf
+alias gortl    cd /home/user/kiennt/CIS/u2b-fcc/IntegrationTest/peribus/rtl
+alias gosysold cd /home/user/kiennt/CIS/u2b-fcc/SystemTestOld/design/
+alias gosys    cd /home/user/kiennt/CIS/u2b-fcc/SystemTest/design/
+alias gosysveri cd /home/user/kiennt/CIS/u2b-fcc/SystemTest/design/veri
+alias gocpu cd /home/user/kiennt/CIS/u2b-fcc/SystemTest/design/veri/testbench/Functional_Safety/BarrierSync/src_safety/cpu
+alias gotcl cd /home/user/kiennt/CIS/u2b-fcc/SystemTest/design/veri/testbench/Functional_Safety/BarrierSync/src_safety/tcl
+setenv com /home/user/kiennt/CIS/u2b-fcc/SystemTest/design/veri/common
+setenv comnew /home/user/kiennt/CIS/u2b-fcc/SystemTest/design/veri/common_new
+alias lg 'll \!:1 | grep \!:2'
+alias back 'cp \!:1 \!:1_\!:2'
+alias vimals 'vim $HOME/.alias_my'
+alias vimrc  'vim $HOME/.vimrc'
+alias grep 'grep --exclude-dir={.dns,.svn,.so.xml,.json,.bak,.fsdb}'
+alias grepf 'grep -rHFn --color=always' 
+alias grepm 'grepf \!:1 . | grep module' 
+alias grepk 'grepf \!:1 . | grep include | grep -v OLD | grep -v back'
+alias simv 'simvision &'
+#            grep -v '   ^\s*$'         !:1 | wc -l
+alias count 'grep -v '\''^\s*$'\' ' \!:1 | wc -l'
+
+alias dsim 'dve -vpd vcdplus.vpd &'
+alias cb   'cd ../'
+alias cf   'cd -'
+
+#alias findf 'find \!:2 -name "'\*'\!:1'\*'"'
+#alias findf 'find \!:2 -name \!:1 | grep -v svn-base'
+alias findf 'find \!:2 | grep -v svn-base | grep \!:1 --color '
+
+alias logout 'echo logout'
+alias svndif 'svn --diff-cmd "diff" --extensions "-y" diff \!:1'
+alias rsync_kien 'rsync -vazC \!:1 \!:2'
+alias p      'pwd'
+
+alias zsh    'exec ~/bin/zsh'
+alias r './regression.csh skip vpd'
